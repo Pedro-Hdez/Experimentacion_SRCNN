@@ -45,13 +45,92 @@ Reescalaremos las imágenes del conjunto de prueba para después intentar recons
 ```console
 usr@dev:~$ degrade_images.py -i <ruta_imgs_originales> -o <ruta_guardar_resultados> -f <factor_reescalado> 
 ```
-A continuación una comparativa entre una imagen degradada y la original
 
-| ![original](/imgs/original.bmp) | ![factor2](/imgs/f2.bmp) | ![factor4](/imgs/f4.bmp) |
-| :--: | :--: | :--: |
-| *Original* | *Factor 2* | *Factor 4* |
+### 3 Preparar los datos de entrenamiento
 
-### 3. 
+Usando el script <ins>*prepare_data.py*</ins> vamos a procesar cada uno de los ejemplos de entrenamiento y guardaremos su información en archivos .h5 desde los cuales vamos a alimentar a los modelos en la siguiente etapa. Para ésto, debemos ejecutar la siguiente instrucción:
+
+```console
+usr@dev:~$ python prepare_data.py -i <ruta_imgs_entrenamiento> -f <factor_reescalado> -c <(OPCIONAL) 1>
+```
+El argumento opcional **-c** es para convertir las imágenes de su formato original a archivos .bmp, ésto con la finalidad de tener información más precisa de cada pixel.
+
+Esto arrojará como resultado dos archivos **crop_train.h5** y **test.h5**.
+
+### 4 Entrenar la red neuronal
+
+Una vez obtenida la información del conjunto de entrenamiento, vamos a entrenar la red neuronal con la siguiente instrucción:
+
+```console
+usr@dev:~$ python train.py -i <guardar_pesos.h5> -m <tipo_modelo> -e <# epochs> -l <(OPCIONAL)pesos_preentrenados.h5>
+```
+
+En mis experimentos, utilicé tres diferentes modelos, entonces el argumento **-m** puede ser:
+
+* 1 = Modelo original (SRCNN)
+* 2 = Mi modelo (6 capas convolucionales, 249 filtros totales)
+* 3 = Mi modelo 2 (6 capas convolucionales, 448 filtros totales)
+
+Si usamos el argumento **-l** cargaremos, desde un archivo .h5, algún modelo preentrenado y continuará con su entrenamiento durante **-e** epochs más.
+
+**Nota** Hay que tener cuidado en esta etapa porque puede demorar muchas horas. Esto depende de la arquitectura del modelo que estamos entrenando, el tamaño del conjunto de entrenamiento y de nuestro poder de cómputo.
+
+### 5 Reconstruir imágenes
+
+Después de entrenar algún modelo, ahora seremos capaces de reconstruir las imágenes que reescalamos en el [paso 2](#2-degradar-las-imágenes). Lo haremos utilizando el script <ins>*predict.py*</ins>
+
+```console
+usr@dev:~$ python predict.py -m <tipo_modelo> -w <pesos_entrenados.h5> -r <ruta_imgs_originales> -t <ruta_imgs_reescaladas> -o <ruta_guardar_resultados>
+```
+
+Este script generará varios resultados y los guardará en la ruta **<ruta_guardar_resultados>**:
+
+* Carpeta **analysis**: Almacena una comparativa entre las imágenes originales, degradadas y reconstruidas.
+* Carpeta **individual_images**: Contiene únicamente las imágenes reconstruidas.
+* Archivo **degraded_img_scores.csv**: Métricas de similitud de las imágenes degradadas.
+* Archivo **scores_csv**: Métricas de similitud de las imágenes reconstruidas.
+
+### 6 Analizar los indicadores de desempeño
+
+El script <ins>*analysis.py*</ins> ejecuta un análisis cuantitativo de las métricas de similitud (psnr, mse, ssim) obtenidas por las reconstrucciones de los modelos, para ésto, ejecutamos la instrucción:
+
+```console
+usr@dev:~$ python analysis.py -a <ruta_reconstruccion_modelo> -b <(OPCIONAL) <ruta_reconstruccion_modelo2>
+```
+
+Los resultados se van a imprimir en consola. Si utilizamos el argumento **-b**, se imprimirá el análisis para cada modelo y se decidirá cuál de ellos tuvo mejores resultados de acuerdo a cada métrica.
+
+### 7 Comparar dos modelos
+
+Para comparar las reconstrucciones de dos modelos diferentes podemos usar el script <ins>*comparator.py*</ins> de la siguiente manera:
+
+```console
+usr@dev:~$ python comparator.py -r <ruta_imgs_originales> -d <ruta_imgs_reescaladas> -a <ruta_resultados_modelo1> -b <ruta_resultados_modelo2> -o <ruta_guardar_resultados>
+```
+
+Como resultado, se van a guardar las comparaciones en la carpeta **<ruta_guardar_resultado>**.
+
+### 8 Encontrar los mejores resultados
+
+Si deseamos saber en qué ejemplos se lograron mejores resultados, de acuerdo a una métrica de similitud específica, deberemos usar el script <ins>*find_best.py*</ins>:
+
+```console
+usr@dev:~$ python find_best.py -i <ruta_resultados_modelo> -m <metrica>
+```
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
