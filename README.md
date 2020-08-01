@@ -101,7 +101,8 @@ Este script generará varios resultados y los guardará en la ruta **<ruta_guard
 |Ejemplo carpeta *analysis*|
 |:--:|
 |![analysis](/imgs/cuatro.png)|
-| :--: |
+
+
 |Ejemplo carpeta *individual_images*|
 |:--:|
 | ![individual](/imgs/individual.bmp)|
