@@ -45,8 +45,9 @@ Reescalaremos las imágenes del conjunto de prueba para después intentar recons
 ```console
 usr@dev:~$ degrade_images.py -i <ruta_imgs_originales> -o <ruta_guardar_resultados> -f <factor_reescalado> 
 ```
+Aquí un ejemplo de imágenes degradadas
 
-| ![original](/imgs/original.bmp) | ![f2](/img/f2.bmp) | ![f4](/img/f4.bmp) |
+| ![original](/imgs/original.bmp) | ![f2](/imgs/f2.bmp) | ![f4](/imgs/f4.bmp) |
 | :--: | :--: | :--: |
 |Original|Degradada (factor 2)|Degradada (factor 4)|
 
@@ -96,9 +97,13 @@ Este script generará varios resultados y los guardará en la ruta **<ruta_guard
 * Archivo **degraded_img_scores.csv**: Métricas de similitud de las imágenes degradadas.
 * Archivo **scores_csv**: Métricas de similitud de las imágenes reconstruidas.
 
-|![analysis](/imgs/cuatro.png)|![individual](/imgs/individual.png)|
-| :--: | : --: |
-|Carpeta *analysis*|Carpeta *individual_images*|
+|:--:|
+|Ejemplo carpeta *analysis*|
+|![analysis](/imgs/cuatro.png)|
+| :--: |
+|Ejemplo carpeta *individual_images*|
+| ![individual](/imgs/individual.bmp)|
+|:--:|
 
 ### 6 Analizar los indicadores de desempeño
 
@@ -110,9 +115,9 @@ usr@dev:~$ python analysis.py -a <ruta_reconstruccion_modelo> -b <(OPCIONAL) <ru
 
 Los resultados se van a imprimir en consola. Si utilizamos el argumento **-b**, se imprimirá el análisis para cada modelo y se decidirá cuál de ellos tuvo mejores resultados de acuerdo a cada métrica.
 
-|![un_modelo](/imgs/a1.png)|![dos_modelos](/imgs/a2.png)
-|:--:|:--:|
-|Un modelo|Dos modelos|
+|![dos_modelos](/imgs/a2.png)
+| :--: |
+|Ejemplo|
 
 ### 7 Comparar dos modelos
 
