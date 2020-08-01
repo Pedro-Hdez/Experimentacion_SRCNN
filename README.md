@@ -97,15 +97,9 @@ Este script generará varios resultados y los guardará en la ruta **<ruta_guard
 * Archivo **degraded_img_scores.csv**: Métricas de similitud de las imágenes degradadas.
 * Archivo **scores_csv**: Métricas de similitud de las imágenes reconstruidas.
 
-
-|Ejemplo carpeta *analysis*|
-|:--:|
 |![analysis](/imgs/cuatro.png)|
-
-
-|Ejemplo carpeta *individual_images*|
 |:--:|
-| ![individual](/imgs/individual.bmp)|
+|Ejemplo carpeta *analysis*|
 
 ### 6 Analizar los indicadores de desempeño
 
@@ -145,7 +139,7 @@ usr@dev:~$ python find_best.py -i <ruta_resultados_modelo> -m <metrica>
 
 Los resultados se mostrarán en consola
 
-|![mejores](/img/mejor.png)|
+|![mejores](/imgs/mejor.png)|
 |:--:|
 |Ejemplo|
 
