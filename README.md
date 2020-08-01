@@ -17,16 +17,16 @@ El código fuente original (Matlab / Caffe) lo puedes encontrar [aquí](http://m
 A continuación, voy a presentarte una guía para mi código. Una vez instalado Anaconda, los pasos son los siguientes:
 
 1. [Importar el entorno de Anaconda](#1-importar-el-entorno-de-anaconda)
-2. [Degradar las imágenes](#Degradar-las-imágenes)
-3. [Preparar los datos de entrenamiento](#Preparar-los-datos-de-entrenamiento)
-4. [Entrenar la red neuronal](#Entrenar-la-red-neuronal)
-5. [Reconstruir imágenes](#Reconstruir-imágenes)
+2. [Degradar las imágenes](#2-degradar-las-imagenes)
+3. [Preparar los datos de entrenamiento](#3-preparar-los-datos-de-entrenamiento)
+4. [Entrenar la red neuronal](#4-entrenar-la-red-neuronal)
+5. [Reconstruir imágenes](#5-reconstruir-imágenes)
 
 Adicionalmente, algunos Scripts tienen la finalidad de analizar el desempeño de los modelos.
 
-5. [Analizar los indicadores de desempeño](#Analizar-los-indicadores-de-desempeño)
-6. [Comparar dos modelos](#Comparar-dos-modelos)
-7. [Encontrar los mejores resultados](#Encontrar-los-mejores-resultados)
+6. [Analizar los indicadores de desempeño](#6-analizar-los-indicadores-de-desempeño)
+7. [Comparar dos modelos](#7-comparar-dos-modelos)
+8. [Encontrar los mejores resultados](#8-encontrar-los-mejores-resultados)
 
 
 ### 1 Importar el entorno de Anaconda
@@ -38,7 +38,7 @@ usr@dev:~$ conda env create -f experimentacion_srcnn.yml
 ```
 Una vez creado el entorno debemos activarlo y es necesario que se mantenga así mientras trabajemos con los Scripts.
 
-### 2. Degradar las imágenes
+### 2 Degradar las imágenes
 
 Reescalaremos las imágenes del conjunto de prueba para después intentar reconstruirlas con la red neuronal usando el Script <ins>*degrade_images.py*</ins> de la siguiente manera:
 
