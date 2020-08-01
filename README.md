@@ -97,12 +97,14 @@ Este script generará varios resultados y los guardará en la ruta **<ruta_guard
 * Archivo **degraded_img_scores.csv**: Métricas de similitud de las imágenes degradadas.
 * Archivo **scores_csv**: Métricas de similitud de las imágenes reconstruidas.
 
+
 |Ejemplo carpeta *analysis*|
+|:--:|
 |![analysis](/imgs/cuatro.png)|
 | :--: |
 |Ejemplo carpeta *individual_images*|
-| ![individual](/imgs/individual.bmp)|
 |:--:|
+| ![individual](/imgs/individual.bmp)|
 
 ### 6 Analizar los indicadores de desempeño
 
