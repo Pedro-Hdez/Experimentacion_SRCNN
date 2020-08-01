@@ -16,7 +16,7 @@ El código fuente original (Matlab / Caffe) lo puedes encontrar [aquí](http://m
 
 A continuación, voy a presentarte una guía para mi código. Una vez instalado Anaconda, los pasos son los siguientes:
 
-1. [Importar el entorno de Anaconda](#importar-el-entorno-de-anaconda)
+1. [Importar el entorno de Anaconda](#1-importar-el-entorno-de-anaconda)
 2. [Degradar las imágenes](#Degradar-las-imágenes)
 3. [Preparar los datos de entrenamiento](#Preparar-los-datos-de-entrenamiento)
 4. [Entrenar la red neuronal](#Entrenar-la-red-neuronal)
@@ -29,7 +29,7 @@ Adicionalmente, algunos Scripts tienen la finalidad de analizar el desempeño de
 7. [Encontrar los mejores resultados](#Encontrar-los-mejores-resultados)
 
 
-## Importar el entorno de Anaconda
+### 1 Importar el entorno de Anaconda
 
 Para usar los scripts es necesario tener instaladas algunas librerías como *Pandas*, *NumPy* y *OpenCV*; además de Tensorflow y Python 3.X. Todas estas especificaciones se encuentran en el archivo **experimentacion_srcnn.yml**. Anaconda automáticamente creará un entorno llamado <ins>*experimentacion_srcnn*</ins> al ejecutar la siguiente instrucción:
 
