@@ -17,7 +17,7 @@ El código fuente original (Matlab / Caffe) lo puedes encontrar [aquí](http://m
 A continuación, voy a presentarte una guía para mi código. Una vez instalado Anaconda, los pasos son los siguientes:
 
 1. [Importar el entorno de Anaconda](#1-importar-el-entorno-de-anaconda)
-2. [Degradar las imágenes](#2-degradar-las-imagenes)
+2. [Degradar las imágenes](#2-degradar-las-imágenes)
 3. [Preparar los datos de entrenamiento](#3-preparar-los-datos-de-entrenamiento)
 4. [Entrenar la red neuronal](#4-entrenar-la-red-neuronal)
 5. [Reconstruir imágenes](#5-reconstruir-imágenes)
